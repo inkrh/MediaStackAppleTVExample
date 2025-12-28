@@ -37,8 +37,6 @@ struct Datum: Codable {
 
 
 
-
-
 // MARK: - Pagination
 struct Pagination: Codable {
     let limit, count, offset, total: Int
