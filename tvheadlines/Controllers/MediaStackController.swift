@@ -49,7 +49,7 @@ class MediaStackController {
     func decodeResult(_ result: JSON) async -> MediaStackModel {
         let jsonDecoder = JSONDecoder()
         do {
-            // decode and order by country then city
+            //TODO: Since TV is a visual medium filter out those articles that don't have an image
             let decodedData = try jsonDecoder.decode(MediaStackModel.self, from: Data(try result.rawData()))
             return decodedData
         } catch {

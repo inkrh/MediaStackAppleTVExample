@@ -22,8 +22,13 @@ class Config {
     private let defaultCountries = Countries.unitedstates.isoCode
     private let defaultLanguages = Languages.en.rawValue
 
-    //access key - TODO: get from mediastack, set in CICD
-    var accessKey = "<YOUR API KEY SET AT BUILD TIME USING CICD VARIABLE>"
+    let accessKey: String = {
+            guard let MEDIASTACK_API_KEY = Bundle.main.infoDictionary?["MEDIASTACK_API_KEY"] as? String else {
+                fatalError("API Key not found in Info.plist")
+            }
+            return MEDIASTACK_API_KEY
+        }()
+    
 
     var categories: String {
         didSet { UserDefaults.standard.set(categories, forKey: categoriesKey) }

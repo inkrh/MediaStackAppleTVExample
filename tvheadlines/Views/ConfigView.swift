@@ -3,7 +3,6 @@ import SwiftUI
 struct ConfigView: View {
     @Bindable private var config = Config.shared
 
-    // Helper for Countries (unchanged)
     private var selectedCountry: Binding<Countries> {
         Binding<Countries>(
             get: {
@@ -16,7 +15,6 @@ struct ConfigView: View {
         )
     }
 
-    // Helper for Categories (unchanged)
     private var selectedCategory: Binding<Categories> {
         Binding<Categories>(
             get: {

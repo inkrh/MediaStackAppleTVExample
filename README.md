@@ -1,6 +1,9 @@
 # Example Of Consuming A News Feed API On Apple TV / tvOS 
 
-Using MediaStack. Get an API key and see API documentation at https://mediastack.com
+Using MediaStack. Get an API key and see API documentation at https://mediastack.com put in Config.xcconfig as
+
+MEDIASTACK_API_KEY = theKeyYouUse
+
 
 More a demo/hobby project than anything to illustrate, explain, and explore.
 

@@ -1,6 +1,13 @@
 import SwiftUI
 internal import Combine
 
+//TODO: if no image - filter out? display stock image - AI lookup for a theme would be great here (e.g. if about Apple and focussed on business then show Apple campus? if about Apple and focussed on iPhone then show iOS device? etc.
+
+//TODO: presentation in general - change headline to base of page above description
+// Image tucks behind below
+// Headline
+// Scrolling description
+
 struct ContentView: View {
     @State private var model: MediaStackModel?
     @State private var errorMessage: String?
@@ -23,17 +30,18 @@ struct ContentView: View {
                     AsyncImage(url: url) { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                             .ignoresSafeArea()
                     } placeholder: {
-                        Image(systemName: "loading")
+                        Image(systemName: "globe")
                     }
                 } else {
                     Image(systemName: "globe").imageScale(.large).aspectRatio(contentMode: .fill).ignoresSafeArea()
                 }
                 VStack {
-                    Spacer()
                     Text("\(newsItem.title)").font(.largeTitle).background(Color.black.opacity(0.2)).padding(64)
+                    Spacer()
+                    DescriptionView(newsItemDescription: newsItem.description).background(Color.black.opacity(0.2)).padding(64)
                 }
             } else if let errorMessage = errorMessage {
                 Text("Error: \(errorMessage)")

@@ -1,13 +1,8 @@
-//
-//  Welcome.swift
-//  tvheadlines
-//
-//  Created by Robert Smith on 12/26/25.
-//
-
 //   let mediaStackModel = try? JSONDecoder().decode(MediaStackModel.self, from: jsonData)
 
 import Foundation
+
+//TODO: change source - quality of source articles at present using general results is more suited to clickbait text sites (e.g. "Ten things to pack on holiday", "Description of ten random things", Possibly an image ) rather than TV (e.g. "Actual news headline", "Brief relevant description", Image/Video). Not reliable as to what will be returned.
 
 // MARK: - MediaStackModel
 struct MediaStackModel: Codable {
