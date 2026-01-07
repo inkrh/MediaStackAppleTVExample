@@ -271,7 +271,7 @@ enum Countries: CustomStringConvertible {
             case .turkey:
                 return "tr"
             case .uae:
-                return "au"
+                return "ae"
             case .ukraine:
                 return "ua"
             case .unitedkingdom:

@@ -13,10 +13,14 @@ class MediaStackController {
     private var _retry: Int = 0
     
     let accessKey = Config().accessKey
-    let base_api = Config().BASE_API    
+    let base_api = Config().BASE_API
+    
+    private var test: Bool = true
     
     public func fetchMSModel() async throws -> MediaStackModel {
-
+        if test {
+            return TestData
+        }
         var msModel: MediaStackModel
         let url = URL(string: Config().BASE_API)
     

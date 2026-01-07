@@ -1,13 +1,21 @@
 import SwiftUI
 
-//TODO: This will be a scrolling feed at the bottom of the page.
+//Abstracting out to this view which leverages the excellent marquee controller (no need to re-invent the wheel).
+
 struct DescriptionView: View {
     let newsItemDescription: String
+    let marqueeController: MarqueeController
+
+    init(newsItemDescription: String) {
+        self.newsItemDescription = newsItemDescription
+        self.marqueeController = MarqueeController(message: newsItemDescription, foregroundColor: Color.white, backgroundColor: Color.black.opacity(0.2))
+    }
+
     var body: some View {
-        Text(newsItemDescription)
+        MarqueeView(controller: marqueeController)
     }
 }
 
 #Preview {
-    DescriptionView(newsItemDescription: "Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.Some long text.")
+    DescriptionView(newsItemDescription: TestData.data.first!.description)
 }
