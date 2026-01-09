@@ -22,7 +22,7 @@ struct ContentView: View {
     let sixHourTimer = Timer.publish(every: 21600, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        ZStack {
+        VStack {
             if let model = model, !model.data.isEmpty {
                 let newsItem = model.data[counter]
                 if let urlString = newsItem.image, let url = URL(string: urlString) {
@@ -31,17 +31,23 @@ struct ContentView: View {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .ignoresSafeArea()
+                            .ignoresSafeArea().containerRelativeFrame(.vertical) { height, _ in
+                                height * 0.8
+                            }
                     } placeholder: {
-                        Image(systemName: "globe")
+                        Image(systemName: "globe").containerRelativeFrame(.vertical) { height, _ in
+                            height * 0.8
+                        }
                     }
                 } else {
-                    Image(systemName: "globe").imageScale(.large).aspectRatio(contentMode: .fill).ignoresSafeArea()
+                    Image(systemName: "globe").imageScale(.large).aspectRatio(contentMode: .fill).ignoresSafeArea().containerRelativeFrame(.vertical) { height, _ in
+                        height * 0.8
+                    }
                 }
+                Spacer()
                 VStack {
-                    Text("\(newsItem.title)").font(.largeTitle).background(Color.black.opacity(0.2)).padding(64)
-                    Spacer()
-                    DescriptionView(newsItemDescription: newsItem.description).background(Color.black.opacity(0.2)).padding(64)
+                    Text("\(newsItem.title)").font(.largeTitle).background(Color.black.opacity(0.2)).foregroundColor(Color.white).padding(48)
+                    DescriptionView(newsItemDescription: newsItem.description).background(Color.black.opacity(0.2)).padding(48)
                 }
             } else if let errorMessage = errorMessage {
                 Text("Error: \(errorMessage)")
@@ -52,7 +58,7 @@ struct ContentView: View {
         }
         .task {
             await fetchData()
-        }
+        }.background(Color.black)
         .onChange(of: config.categories) { _ in
             Task { await fetchData() }
         }

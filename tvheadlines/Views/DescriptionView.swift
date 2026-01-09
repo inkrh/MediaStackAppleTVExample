@@ -8,7 +8,7 @@ struct DescriptionView: View {
 
     init(newsItemDescription: String) {
         self.newsItemDescription = newsItemDescription
-        self.marqueeController = MarqueeController(message: newsItemDescription, foregroundColor: Color.white, backgroundColor: Color.black.opacity(0.2))
+        self.marqueeController = MarqueeController(message: String(repeating: "*", count: 84) + newsItemDescription, foregroundColor: Color.white, backgroundColor: Color.black.opacity(0.2))
     }
 
     var body: some View {

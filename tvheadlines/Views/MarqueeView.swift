@@ -31,7 +31,7 @@ struct MarqueeView: View {
                     .clipped()
             }
         } else {
-            Text("There is nothing to display yet...")
+            Text("...")
         }
     }
 }
@@ -46,7 +46,7 @@ class MarqueeController {
     var startTime = 0.0
     var runningTime = 0.0
     let speed = 40.0 // points/second
-    let marqueeFont = UIFont.systemFont(ofSize: 36, weight: .bold) // Using a UIFont because the width can be measured.
+    let marqueeFont = UIFont.systemFont(ofSize: 48, weight: .bold) // Using a UIFont because the width can be measured.
 
     init(message: String) {
         self.message = message
