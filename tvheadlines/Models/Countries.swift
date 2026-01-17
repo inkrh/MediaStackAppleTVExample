@@ -1,3 +1,5 @@
+//Ideal world this would come directly from the API to cover changes in available countries
+
 //needs description and iso code since user friendly name != iso code and can't use all iso codes in enum (e.g. "in" is a reserved keyword).
 
 enum Countries: CustomStringConvertible {

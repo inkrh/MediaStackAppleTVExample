@@ -1,3 +1,5 @@
+//Ideal world this would come from an API endpoint listing available languages
+
 enum Languages: String {
     case ar
     case de

@@ -1,12 +1,12 @@
 import SwiftUI
 internal import Combine
 
+// This is just a demo so little thought done on presentation, just enough to see it works
+// IMO ideal would be image tucks behind Headline and Scrolling description, if no image then have a set of stock category images.
+
 //TODO: if no image - filter out? display stock image - AI lookup for a theme would be great here (e.g. if about Apple and focussed on business then show Apple campus? if about Apple and focussed on iPhone then show iOS device? etc.
 
 //TODO: presentation in general - change headline to base of page above description
-// Image tucks behind below
-// Headline
-// Scrolling description
 
 struct ContentView: View {
     @State private var model: MediaStackModel?

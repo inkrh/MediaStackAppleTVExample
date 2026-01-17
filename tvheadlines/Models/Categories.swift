@@ -1,3 +1,4 @@
+//Ideal world this would come from an API endpoint listing available categories
 enum Categories: String, CaseIterable {
     case general
     case business
